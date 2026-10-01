@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
   <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
   <title>Recuperação de palavra-passe | Quinas</title>
   <style>
     :root {
       color-scheme: light;
-      font-family: Georgia, "Times New Roman", serif;
-      color: #17352c;
-      background: #edf3ef;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #333333;
+      background: #f5f5f5;
     }
 
     * { box-sizing: border-box; }
@@ -21,80 +22,150 @@
       margin: 0;
       display: grid;
       place-items: center;
-      padding: 24px;
-      background: repeating-linear-gradient(135deg, #edf3ef 0 18px, #e7efea 18px 19px);
+      padding: 32px 18px;
+      background: #f5f5f5;
     }
 
     main {
-      width: min(100%, 460px);
-      padding: 34px;
-      border: 1px solid #c7d8ce;
-      border-top: 5px solid #c98135;
+      width: min(100%, 680px);
+      padding: 34px clamp(20px, 6vw, 54px) 28px;
+      border: 1px solid #e1e1e1;
       background: #fff;
-      box-shadow: 0 18px 50px #17352c1c;
     }
 
-    .brand {
-      margin: 0 0 28px;
-      color: #39705a;
-      font: 700 13px/1.2 Arial, sans-serif;
-      letter-spacing: .14em;
-      text-transform: uppercase;
+    .brand-mark {
+      display: block;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 8px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      margin: 0 0 30px;
+      color: #808080;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
     }
 
     h1 {
-      margin: 0 0 14px;
-      font-size: clamp(27px, 7vw, 36px);
-      font-weight: 500;
-      line-height: 1.12;
+      margin: 0 0 22px;
+      color: #333333;
+      font-size: 23px;
+      font-weight: 700;
+      line-height: 1.3;
+      text-align: center;
     }
 
-    p {
+    .intro {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid #e4e4e4;
+      border-bottom: 1px solid #e4e4e4;
+    }
+
+    .intro p {
       margin: 0;
-      color: #52675e;
-      font: 16px/1.55 Arial, sans-serif;
+      padding: 18px 14px;
+      color: #454545;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .intro p + p {
+      border-left: 1px solid #e4e4e4;
     }
 
     .action {
-      display: block;
-      margin-top: 26px;
-      padding: 15px 18px;
-      background: #245a45;
+      display: table;
+      margin: 25px auto 12px;
+      padding: 13px 24px;
+      background: #333333;
       color: #fff;
-      font: 700 15px/1.2 Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
       text-align: center;
       text-decoration: none;
     }
 
     .action:focus-visible {
-      outline: 3px solid #c98135;
+      outline: 3px solid #808080;
       outline-offset: 3px;
     }
 
     .status {
-      min-height: 24px;
-      margin-top: 18px;
+      margin: 12px 0 24px;
+      color: #666666;
       font-size: 14px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .signature {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid #e4e4e4;
+      text-align: center;
+    }
+
+    .signature p {
+      margin: 0 0 10px;
+      color: #555555;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .signature img {
+      display: block;
+      width: 128px;
+      height: 75px;
+      margin: 14px auto 8px;
+      object-fit: contain;
+    }
+
+    .signature a {
+      color: #555555;
+      font-size: 13px;
     }
 
     [hidden] { display: none !important; }
 
-    @media (max-width: 420px) {
-      main { padding: 27px 23px; }
+    @media (max-width: 520px) {
+      body { padding: 14px 10px; }
+      main { padding: 26px 18px 22px; }
+      .intro { grid-template-columns: 1fr; }
+      .intro p { padding: 14px 4px; }
+      .intro p + p {
+        border-top: 1px solid #e4e4e4;
+        border-left: 0;
+      }
     }
   </style>
 </head>
 <body>
   <main>
-    <p class="brand">Quinas · JTR Software</p>
+    <img class="brand-mark" src="https://bb026383ab.cbaul-cdnwnd.com/24133783dae9e11f0df5cd56ef4845e2/200000237-02b5f02b61/96x96.png" alt="Logótipo Quinas" width="96" height="96">
+    <p class="brand-name">Quinas</p>
     <h1>Recuperação de palavra-passe</h1>
-    <p id="description">A preparar o link de recuperação.</p>
+    <div class="intro">
+      <p id="description">A preparar o link de recuperação.</p>
+      <p id="description-en">A password recovery link has been requested. Open the Quinas app to set a new password.</p>
+    </div>
     <a class="action" id="open-app" href="#" hidden>Abrir aplicação Quinas</a>
     <p class="status" id="status" role="status" aria-live="polite"></p>
+    <footer class="signature">
+      <p>Obrigado,<br>JTR Software.</p>
+      <img src="https://bb026383ab.cbaul-cdnwnd.com/24133783dae9e11f0df5cd56ef4845e2/200000104-1a90c1a90e/Logo3H_SW.png?ph=bb026383ab" alt="JTR Software" width="128" height="75">
+      <a href="https://jtr-software.webnode.pt/">https://jtr-software.webnode.pt/</a>
+    </footer>
   </main>
   <script>
     (() => {
       const description = document.getElementById('description');
+      const descriptionEn = document.getElementById('description-en');
       const status = document.getElementById('status');
       const openApp = document.getElementById('open-app');
       const fragment = window.location.hash.slice(1);
@@ -106,6 +177,8 @@
 
       if (!token || !/^[a-f0-9]{64}$/i.test(token)) {
         description.textContent = 'Este link está incompleto ou inválido. Pede um novo e-mail de recuperação na aplicação.';
+        descriptionEn.textContent = 'This link is incomplete or invalid. Request a new recovery email in the Quinas app.';
+        openApp.hidden = true;
         status.textContent = '';
         return;
       }
@@ -114,8 +187,9 @@
       appUrl.searchParams.set('token', token);
       openApp.href = appUrl.toString();
       openApp.hidden = false;
-      description.textContent = 'O link está pronto. Abre a aplicação Quinas para definir uma nova palavra-passe.';
-      status.textContent = 'Por segurança, o token é válido por tempo limitado e só pode ser utilizado uma vez.';
+      description.textContent = 'Foi pedido um link para recuperar a palavra-passe da sua conta. Abra a aplicação Quinas para definir uma nova palavra-passe.';
+      descriptionEn.textContent = 'A password recovery link was requested for your account. Open the Quinas app to set a new password.';
+      status.textContent = 'O link é válido durante 30 minutos e só pode ser utilizado uma vez. | This link is valid for 30 minutes and can only be used once.';
     })();
   </script>
 </body>
